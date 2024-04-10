@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AlzAware - Alzheimer's classification</title>
+    <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              main: "#ffccbe",
+              secondary: "#a91c67",
+              tersier: "#ffe1e1",
+              darksecondary: "#630135",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <div class="min-h-screen bg-main sm:flex p-10 md:py-12 md:px-32">
+      <div class="basis-1/2 flex items-center justify-center">
+        <div>
+          <h1 class="text-3xl sm:text-4xl font-bold text-secondary">
+            Alzheimer's classification
+          </h1>
+          <p class="py-3 text-slate-800">
+            Preserving Memories Together: Utilizing Brain MRI Classification
+            Technology to Detect Alzheimer's Early, Bringing Hope and Better
+            Quality of Life.
+          </p>
+          <a href="/classification"
+            ><button
+              class="font-bold px-3 py-2 bg-secondary text-tersier rounded-md"
+            >
+              Classify Now!
+            </button></a
+          >
+        </div>
+      </div>
+      <div class="basis-1/2 h-100 flex items-center">
+        <img src="/static/images/brain.jpg" alt="" />
+      </div>
+    </div>
+    <div class="bg-secondary flex items-center justify-center px-10 py-8 md:px-32 md:py-6">
+      <div>
+        <h1
+          class="text-3xl sm:text-4xl font-bold text-tersier text-center mb-2"
+        >
+          Statistics
+        </h1>
+        <p class="text-center mb-8 text-tersier">The classification model used on this website.</p>
+        <div class="flex flex-col sm:flex-row gap-3 ">
+          <div
+            class="bg-main flex self-start justify-center items-center p-2 sm:p-5 border rounded-sm"
+          >
+            <img src="/static/images/confussionmatriks.png" alt="" />
+          </div>
+          <div
+            class="bg-main flex justify-center items-center p-2 sm:p-5 border rounded-sm"
+          >
+            <img src="/static/images/lossAkurasi.png" class="w-full" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-darksecondary flex  items-center justify-center p-10">
+      <div>
+        <h1
+          class="text-slate-300 text-center text-sm sm:text-md"
+        >
+        &copy; Copyright Fardan Maula Azizi
+        </h1>
+    </div>
+  </body>
+</html>

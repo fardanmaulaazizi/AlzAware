@@ -1,0 +1,9 @@
+tensorflow 
+scikit-image
+Keras 
+numpy 
+pandas
+imutils
+scikit-learn
+matplotlib 
+seaborn

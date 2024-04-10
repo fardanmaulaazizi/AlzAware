@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AlzAware - Alzheimer's classification</title>
+    <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              main: "#ffccbe",
+              secondary: "#a91c67",
+              tersier: "#ffe1e1",
+              darksecondary: "#630135",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <div class="min-h-screen bg-main flex items-center justify-center p-10 px-32 flex-col">
+      <div class="bg-tersier text-center p-5 rounded">
+        <div>
+          <h1 class="text-2xl text sm:text-2xl font-bold text-secondary">
+            Alzheimer's classification
+          </h1>
+          <p class="py-3 text-slate-800 text-sm">
+            Upload the MRI image to be classified for Alzheimer's disease.
+          </p>
+          {% if img_path %}
+            <center><img src="{{img_path}}" class="mb-3" id="image_placeholder" style="height: 200px; width: 250px; object-fit: cover;"></center>
+          {% else %}
+            <center><img src="/static/images/placeholder_images.png" class="mb-3" id="image_placeholder" style="height: 200px; width: 250px; object-fit: cover;"></center>
+          {% endif %}
+          <form action="/classification" method="post" enctype="multipart/form-data">
+            <input class="block w-full text-sm text-gray-900 border border-gray-300  cursor-pointer bg-gray-50 focus:outline-none" id="input_image"  type="file" name="file" required>
+            <p class="mt-1 text-sm text-gray-500  mb-3 text-xs" id="file_input_help">PNG, JPG or JPEG</p>
+           <button
+                class="font-bold px-3 py-2 bg-secondary text-tersier rounded-md mb-3"
+              >
+                Classify Now!
+              </button>
+          </form>
+          {% if prediction %}
+            <h2 class="text-secondary">Predict : {{prediction}}</h2>
+            <h2 class="text-secondary">Confident : {{confidence}}</h2>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="bg-darksecondary flex  items-center justify-center p-10">
+      <div>
+        <h1
+          class="text-slate-300 text-center text-sm sm:text-md"
+        >
+        &copy; Copyright Fardan Maula Azizi
+        </h1>
+    </div>
+    <script>
+        const image = document.getElementById("image_placeholder")
+        const input = document.getElementById("input_image")
+        input.addEventListener(
+            "change", () => {
+                image.src = URL.createObjectURL(input.files[0])
+            }
+        )
+    </script>
+  </body>
+</html>
